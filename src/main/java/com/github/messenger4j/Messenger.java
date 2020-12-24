@@ -129,7 +129,7 @@ public final class Messenger {
       @NonNull Optional<String> signature,
       @NonNull Consumer<Event> eventHandler)
       throws MessengerVerificationException {
-
+    log.warn("Shani eventReceived {}", requestPayload);
     if (signature.isPresent()) {
       if (!SignatureUtil.isSignatureValid(requestPayload, signature.get(), this.appSecret)) {
         throw new MessengerVerificationException(

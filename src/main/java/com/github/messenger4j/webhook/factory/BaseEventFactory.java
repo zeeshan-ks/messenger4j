@@ -2,6 +2,7 @@ package com.github.messenger4j.webhook.factory;
 
 import static com.github.messenger4j.internal.gson.GsonUtil.Constants.PROP_AD_ID;
 import static com.github.messenger4j.internal.gson.GsonUtil.Constants.PROP_IDENTIFIER;
+import static com.github.messenger4j.internal.gson.GsonUtil.Constants.PROP_IS_GUEST_USER;
 import static com.github.messenger4j.internal.gson.GsonUtil.Constants.PROP_REF;
 import static com.github.messenger4j.internal.gson.GsonUtil.Constants.PROP_SOURCE;
 import static com.github.messenger4j.internal.gson.GsonUtil.Constants.PROP_TYPE;
@@ -38,7 +39,8 @@ interface BaseEventFactory<E extends BaseEvent> {
         getPropertyAsString(jsonObject, PROP_TYPE).orElseThrow(IllegalArgumentException::new);
     final Optional<String> refPayload = getPropertyAsString(jsonObject, PROP_REF);
     final Optional<String> adId = getPropertyAsString(jsonObject, PROP_AD_ID);
+    final Optional<String> isGuestUser = getPropertyAsString(jsonObject, PROP_IS_GUEST_USER);
 
-    return new Referral(source, type, refPayload, adId);
+    return new Referral(source, type, refPayload, adId, isGuestUser);
   }
 }

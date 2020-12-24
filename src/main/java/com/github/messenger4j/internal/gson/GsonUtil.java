@@ -137,6 +137,7 @@ public final class GsonUtil {
     PROP_GENDER("gender"),
     PROP_TITLE("title"),
     PROP_REFERRAL("referral"),
+    PROP_IS_GUEST_USER("is_guest_user"),
     PROP_SOURCE("source"),
     PROP_AD_ID("ad_id"),
     PROP_NLP("nlp"),
